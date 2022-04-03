@@ -3,7 +3,7 @@
     <common-layout-header />
     <ui-layout-grid>
       <li v-for="realestatesAd in realestatesAds">
-        <ui-card-ads :title="realestatesAd.attributes.title" :img="{src:'http://localhost:1337' + realestatesAd.attributes.images.data[0].attributes.url, alt:realestatesAd.attributes.images.data[0].attributes.alternativeText}" :link="{name: 'realestatesad-id', params: { id:realestatesAd.id }}">
+        <ui-card-ads :title="realestatesAd.attributes.title" :img="{src:'http://localhost:1337' + realestatesAd.attributes.images.data[0].attributes.url, alt:realestatesAd.attributes.images.data[0].attributes.alternativeText}" :link="'/realestatesad/' + realestatesAd.id">
           <span>{{realestatesAd.attributes.price}}&nbsp;€</span>
         </ui-card-ads>
       </li>
@@ -30,7 +30,7 @@ export default {
         method: 'POST',
         body: JSON.stringify({
           query: `query{
-  realestates{data{attributes{title,images{data{attributes{url, alternativeText}}}, publishedAt, price}}}
+  realestates{data{id,attributes{title,images{data{attributes{url, alternativeText}}}, publishedAt, price}}}
 }`,
           variables: {
             type: 'post'
@@ -43,7 +43,6 @@ export default {
         // Console log our return data
         await data.json().then(realestateAd =>{
           this.realestatesAds = realestateAd.data.realestates.data
-          console.log(this.realestatesAds)
         })
       });
     }

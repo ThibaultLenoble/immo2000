@@ -7,7 +7,7 @@
       <div class="ui-card-description">
         <slot></slot>
       </div>
-      <a :href="link">Voir plus</a>
+      <NuxtLink :to="link">Voir plus</NuxtLink>
     </article>
 </template>
 
@@ -23,7 +23,7 @@ export default {
       type: Object,
     },
     link:{
-      type: Object,
+      type: String,
     }
   },
 }
