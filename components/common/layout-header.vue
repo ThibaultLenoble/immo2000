@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Immo 2000</h1>
+    <nuxt-link to="/"><h1>Immo 2000</h1></nuxt-link>
   </header>
 </template>
 
