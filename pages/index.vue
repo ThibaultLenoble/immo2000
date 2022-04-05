@@ -1,6 +1,7 @@
 <template>
   <main>
     <common-layout-header />
+    <ui-section-title :title="'Liste des annonces'" />
     <ui-layout-grid>
       <li v-for="realestatesAd in realestatesAds">
         <ui-card-ads :title="realestatesAd.attributes.title" :img="{src:'http://localhost:1337' + realestatesAd.attributes.images.data[0].attributes.url, alt:realestatesAd.attributes.images.data[0].attributes.alternativeText}" :link="'/realestatesad/' + realestatesAd.id">

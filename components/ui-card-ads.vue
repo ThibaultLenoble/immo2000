@@ -33,6 +33,23 @@ export default {
   article{
     display: flex;
     flex-direction: column;
+    height: 250px;
+    padding: 1em;
+
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0, 0.1) 0 0 15px;
+  }
+
+  a{
+    display: block;
+    text-align: right;
+    margin-top: auto;
+
+    color: #0c4dd3
+  }
+
+  h1{
+    margin: .7em 0;
   }
 
   .ui-card-illustration{
@@ -45,4 +62,5 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+
 </style>

@@ -24,7 +24,7 @@ export default {
   }
 
   li{
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     padding: 2em;
 
     box-sizing: border-box;
