@@ -1,16 +1,20 @@
 <template>
   <main>
     <common-layout-header />
+    <h1>{{this.realestatesAd.title}}</h1>
     <section>
-      <h1>{{this.realestatesAd.title}}</h1>
-      <span>{{this.realestatesAd.price}}&nbsp;€ pour {{this.realestatesAd.indoor_surface + this.realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></span>
-      <p>{{this.realestatesAd.description}}</p>
-      <span>{{this.realestatesAdAdress}}, {{this.realestatesAdLocalisation.code}} {{this.realestatesAdLocalisation.name}}</span>
-      <ui-slider>
-        <li v-for="image in this.realestatesAdImages">
-          <img :src="'http://localhost:1337' + image.attributes.url" :alt="image.attributes.alternativeText">
-        </li>
-      </ui-slider>
+      <div class="basic-informations">
+        <span><em>{{this.realestatesAdAdress}}, {{this.realestatesAdLocalisation.code}} {{this.realestatesAdLocalisation.name}}</em></span><br>
+        <span>{{this.realestatesAd.price}}&nbsp;€ pour {{this.realestatesAd.indoor_surface + this.realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></span>
+        <p>{{this.realestatesAd.description}}</p>
+      </div>
+      <div class="ads-illustrations">
+        <ui-slider>
+          <li v-for="image in this.realestatesAdImages">
+            <img :src="'http://localhost:1337' + image.attributes.url" :alt="image.attributes.alternativeText">
+          </li>
+        </ui-slider>
+      </div>
     </section>
     <section>
       <h2>Information sur le bien</h2>
@@ -69,3 +73,46 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  section{
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em 5em;
+
+    box-shadow: rgba(0,0,0, 0.1) 0 0 15px;
+    border-radius: 10px;
+  }
+
+  h1{
+    font-size:  2em;
+    width: 100%;
+    padding: 2.5em;
+    padding-top: 1em;
+    padding-bottom: 0;
+  }
+
+  h2{
+    width: 100%;
+  }
+
+  p{
+    margin: 2em 0;
+  }
+
+  .basic-informations{
+    width: 50%;
+  }
+
+  .ads-illustrations{
+    width: 50%;
+
+    border: 1px solid lightgray;
+  }
+
+  ul{
+    margin: 1em 0;
+  }
+</style>
