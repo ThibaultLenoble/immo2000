@@ -27,6 +27,9 @@
         <li>Nb de chambres : {{this.realestatesAd.bedroom_count}}</li>
       </ul>
     </section>
+    <section>
+      <ui-contact-ads :ad-id="this.$route.params.id" />
+    </section>
     <common-layout-footer />
   </main>
 </template>
@@ -34,6 +37,8 @@
 <script>
 var {graphql, buildSchema} = require('graphql');
 export default {
+  components: {},
+
   data(){
     return {
       realestatesAd: Object,
