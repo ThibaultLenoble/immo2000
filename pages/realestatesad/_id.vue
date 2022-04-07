@@ -4,13 +4,13 @@
     <h1>{{this.realestatesAd.title}}</h1>
     <section>
       <div class="basic-informations">
-        <span><em>{{this.realestatesAdAdress}}, {{this.realestatesAdLocalisation.code}} {{this.realestatesAdLocalisation.name}}</em></span><br>
-        <span>{{this.realestatesAd.price}}&nbsp;€ pour {{this.realestatesAd.indoor_surface + this.realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></span>
-        <p>{{this.realestatesAd.description}}</p>
+        <span><em>{{realestatesAdAdress}}, {{realestatesAdLocalisation.code}} {{realestatesAdLocalisation.name}}</em></span><br>
+        <span>{{realestatesAd.price}}&nbsp;€ pour {{realestatesAd.indoor_surface + realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></span>
+        <p>{{realestatesAd.description}}</p>
       </div>
       <div class="ads-illustrations">
         <ui-slider>
-          <li v-for="image in this.realestatesAdImages">
+          <li v-for="image in realestatesAdImages">
             <img :src="'http://localhost:1337' + image.attributes.url" :alt="image.attributes.alternativeText">
           </li>
         </ui-slider>
@@ -19,16 +19,16 @@
     <section>
       <h2>Information sur le bien</h2>
       <ul>
-        <li>à Vendre : {{this.realestatesAd.isForSale}}</li>
-        <li>Meublé : {{this.realestatesAd.isFurnished}}</li>
-        <li>Surface intérieur : {{this.realestatesAd.indoor_surface}}&nbsp;m<sup>2</sup></li>
-        <li>Surface extérieur : {{this.realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></li>
-        <li>Nb de pièces : {{this.realestatesAd.room_count}}</li>
-        <li>Nb de chambres : {{this.realestatesAd.bedroom_count}}</li>
+        <li>à Vendre : {{realestatesAd.isForSale}}</li>
+        <li>Meublé : {{realestatesAd.isFurnished}}</li>
+        <li>Surface intérieur : {{realestatesAd.indoor_surface}}&nbsp;m<sup>2</sup></li>
+        <li>Surface extérieur : {{realestatesAd.outdoor_surface}}&nbsp;m<sup>2</sup></li>
+        <li>Nb de pièces : {{realestatesAd.room_count}}</li>
+        <li>Nb de chambres : {{realestatesAd.bedroom_count}}</li>
       </ul>
     </section>
     <section>
-      <ui-contact-ads :ad-id="this.$route.params.id" />
+      <ui-contact-ads :ad-id="$route.params.id" />
     </section>
     <common-layout-footer />
   </main>
@@ -41,10 +41,10 @@ export default {
 
   data(){
     return {
-      realestatesAd: Object,
-      realestatesAdImages: Array,
-      realestatesAdAdress: Object,
-      realestatesAdLocalisation: Object,
+      realestatesAd: {},
+      realestatesAdImages: [],
+      realestatesAdAdress: {},
+      realestatesAdLocalisation: {},
     }
   },
   methods: {
